@@ -1,0 +1,58 @@
+<div *ngIf="show" >
+    <div >
+    <h4>Edit Form</h4>
+    <form [formGroup]="editForm" (ngSubmit)="notify.emit(editForm.value)">  
+        <table style="padding: auto;" align="center" cellpadding="3">
+            <tr>
+                <td>Employee ID: </td>
+                <td><input type="number" formControlName="empId" placeholder="Employee ID" readonly/></td>
+            </tr>
+            <tr>
+                <td>Name: </td>
+                <td><input type="test" formControlName="name" placeholder="Name" /></td>
+            </tr>
+            <tr>
+                <td>Gender:</td>
+                <td>
+                    <input type="radio" formControlName="gender" value="male"  />Male
+                    <input type="radio" formControlName="gender" value="female" />Female
+                </td>
+            </tr>
+            <tr>
+                <td>Address: </td>
+                <td><input type="textarea" formControlName="address" placeholder="Address"/></td>
+            </tr>    
+            <tr>
+                <td colspan="2" align="center"><button type="submit">Update!</button></td>
+            </tr>
+        </table>
+        
+    </form>
+    </div>
+</div>
+<!--<div *ngIf="show">
+    <h4>Edit Form</h4>
+    <br/>
+    <label>
+        Employee ID: 
+        <input type="number" placeholder="Employee ID" disabled="true" [value]="employee.empId"/>
+    </label>
+    <br/>
+    <label>
+        Name: 
+        <input type="test" placeholder="Name" [value]="employee.name"/>
+    </label>
+    <br/>
+    <label>
+        Gender:
+        <input type="radio"  name="gender" value="male"  selected="{{employee.gender==male}}"/>Male
+        <input type="radio"  name="gender" value="female" selected="{{employee.gender==female}}"/>Female
+    </label>
+    <br/>
+    <label>
+        Address: 
+        <input type="textarea"  placeholder="Address" [value]="employee.address"/>
+    </label>
+    <br/>
+    <button (click)="onEditSubmit()">Done!</button>
+</div>-->

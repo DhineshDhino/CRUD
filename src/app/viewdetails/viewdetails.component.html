@@ -1,0 +1,25 @@
+<div align="center" *ngIf="employeeService.employees.length" style="display: 'inline';float: 'right';width: '68%'; border-left: '3px solid #0080fe';padding-right: '10px';min-height: 250px">
+    <table cellpadding="4px" class="bordered">
+        <tr>
+            <th>EmployeeID</th>
+            <th>Name</th>
+            <th>Gender</th>
+            <th>Address</th>
+            <th>Actions</th>
+        </tr>
+        <tr *ngFor="let employee of employeeService.employees">
+            <td>{{employee.empId}}</td>
+            <td>{{employee.name}}</td>
+            <td>{{employee.gender}}</td>
+            <td>{{employee.address}}</td>
+            <td colspan="2">
+                <button (click)="updateEmployee(employee)">Edit</button>
+                <button (click)="employeeService.deleteEmployee(employee)">Delete</button>
+            </td>
+        </tr>
+    </table>
+    <app-editdetails 
+    [show]="show" 
+    [employee] = "selectedEmployee" 
+    (notify) = "onNotify($event)"></app-editdetails>
+</div>
