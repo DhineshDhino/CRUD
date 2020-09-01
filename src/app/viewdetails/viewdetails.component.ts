@@ -12,12 +12,10 @@ export class ViewdetailsComponent implements OnInit {
   selectedEmployee: Employee;
   show: boolean;
   @Input() employeesCopy: Employee[];
-  dsEmployees: MatTableDataSource<Employee>;
   @ViewChild(MatTable) table: MatTable<Employee>;
   displayedColumns: string[]=["empId","name","gender","address","actions"];
 
-  constructor(public employeeService: EmployeeService) { 
-    this.dsEmployees= new MatTableDataSource<Employee>(this.employeesCopy);
+  constructor(public employeeService: EmployeeService) {
   }
 
   ngOnInit(): void {
@@ -52,6 +50,7 @@ export class ViewdetailsComponent implements OnInit {
   }
 
   deleteEmployee(employee: Employee){
+    this.show=false;
     this.employeeService.deleteEmployee(employee);
     if(this.table){
       this.table.renderRows();

@@ -12,7 +12,9 @@
                 <td>
                     <mat-form-field appearance="outline">
                         <mat-label>Employee Id</mat-label>
+                        
                         <input matInput placeholder="eg.123445" readonly  [formControl]="editForm.controls.empId" type="number">
+                        <mat-hint>*Emp ID cannot be changed</mat-hint>
                     </mat-form-field>
                      </td>
             </tr>
