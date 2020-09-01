@@ -23,9 +23,8 @@ export class EditdetailsComponent implements OnInit {
       address: ''
     });
    }
-   ngOnInit(): void{
+   ngOnInit(): void{}
 
-   }
 
   ngOnChanges(): void {
     if(this.show){

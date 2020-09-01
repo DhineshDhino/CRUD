@@ -1,5 +1,8 @@
-<div align="center" *ngIf="employeeService.employees.length" style="display: 'inline';float: 'right';width: '68%'; border-left: '3px solid #0080fe';padding-right: '10px';min-height: 250px">
-    <table cellpadding="4px" class="bordered">
+
+<app-register (addingEmp)="addEmp($event)"></app-register>
+<div align="center" *ngIf="employeeService.employees.length" style="display: 'inline';float: 'right';width: '68%'; border-left: '3px solid #0080fe';padding-right: '10px';min-height: 500px">
+    <!--<table cellpadding="4px" class="bordered">
+
         <tr>
             <th>EmployeeID</th>
             <th>Name</th>
@@ -18,6 +21,48 @@
             </td>
         </tr>
     </table>
+
+    -->
+    <table mat-table style="width: 80%;" [dataSource]="employeesCopy" class="mat-elevation-z8">
+
+        <ng-Container matColumnDef="empId">
+            <th mat-header-cell *matHeaderCellDef>Employee ID</th>
+            <td mat-cell *matCellDef="let employee">{{employee.empId}}</td>
+        </ng-Container>
+
+        <ng-Container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef>Name</th>
+            <td mat-cell *matCellDef="let employee">{{employee.name}}</td>
+        </ng-Container>
+
+        <ng-Container matColumnDef="gender">
+            <th mat-header-cell *matHeaderCellDef>Gender</th>
+            <td mat-cell *matCellDef="let employee">{{employee.gender}}</td>
+        </ng-Container>
+
+        <ng-Container matColumnDef="address">
+            <th mat-header-cell *matHeaderCellDef>Address</th>
+            <td mat-cell *matCellDef="let employee">{{employee.address}}</td>
+        </ng-Container>
+
+        <ng-Container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef>Actions</th>
+            <td mat-cell *matCellDef="let employee">
+                <button mat-raised-button color="primary" (click)="updateEmployee(employee)">Edit</button>&nbsp;&nbsp;
+                <button mat-raised-button color="primary" (click)="deleteEmployee(employee)">Delete</button>
+            </td>
+            
+        </ng-Container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+
+    </table>
+
+<br/>
+<br/>
+
     <app-editdetails 
     [show]="show" 
     [employee] = "selectedEmployee" 
