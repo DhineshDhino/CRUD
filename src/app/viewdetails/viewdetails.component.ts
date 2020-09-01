@@ -1,7 +1,9 @@
 import { EmployeeService } from './../employee.service';
+
 import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { Employee } from '../employee';
 import { MatTableDataSource, MatTable } from '@angular/material/table';
+
 
 @Component({
   selector: 'app-viewdetails',
@@ -11,6 +13,7 @@ import { MatTableDataSource, MatTable } from '@angular/material/table';
 export class ViewdetailsComponent implements OnInit {
   selectedEmployee: Employee;
   show: boolean;
+
   @Input() employeesCopy: Employee[];
   dsEmployees: MatTableDataSource<Employee>;
   @ViewChild(MatTable) table: MatTable<Employee>;
@@ -18,10 +21,12 @@ export class ViewdetailsComponent implements OnInit {
 
   constructor(public employeeService: EmployeeService) { 
     this.dsEmployees= new MatTableDataSource<Employee>(this.employeesCopy);
+
   }
 
   ngOnInit(): void {
   }
+
 
   ngOnChanges(): void {
     console.log("OnChangeCalled");
@@ -31,6 +36,7 @@ export class ViewdetailsComponent implements OnInit {
   }
 
   updateEmployee(employee: Employee){
+
     this.show=true;
     this.selectedEmployee= employee;
   }
@@ -38,6 +44,7 @@ export class ViewdetailsComponent implements OnInit {
   onNotify(employee: Employee){
     this.show=false;
     this.employeeService.updateEmployee(employee);
+
     if(this.table){
       this.table.renderRows();
     }
@@ -57,6 +64,7 @@ export class ViewdetailsComponent implements OnInit {
       this.table.renderRows();
     }
     
+
   }
 
 }

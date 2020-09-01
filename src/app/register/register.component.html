@@ -1,4 +1,5 @@
 <div style="display: 'inline';float: 'left';width: '30%';padding-right: '10px';">
+
     <br/>
     <h2 style="text-align:'center';font-weight: 500;">Registration Form</h2>
     <form [formGroup]="registrationForm" (ngSubmit)="addClick()" >  
@@ -30,10 +31,12 @@
                     <input matInput  placeholder="eg. Ram" [formControl]="registrationForm.controls.name">
                     </mat-form-field>
                 </td>
+
             </tr>
             
             <tr>
             
+
                 <!--<td>Gender:</td>
                 <td>
                     <input type="radio" formControlName="gender" value="male" />Male
@@ -52,10 +55,12 @@
                     </mat-radio-group>
                 </td>
                 
+
             
             </tr>
             
             <tr>
+
                 <!--
                 <td>Address: </td>
                 <td><input type="textarea" formControlName="address" placeholder="Address"/></td>
@@ -75,6 +80,7 @@
             <br/>
             <tr>
             <td colspan="2" align="center"><button mat-raised-button color="primary" type="submit">Submit</button></td>
+
             </tr>
             
         </table>

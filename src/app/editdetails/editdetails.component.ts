@@ -25,6 +25,7 @@ export class EditdetailsComponent implements OnInit {
    }
    ngOnInit(): void{}
 
+
   ngOnChanges(): void {
     if(this.show){
       this.editForm.patchValue({
