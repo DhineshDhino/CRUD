@@ -1,0 +1,82 @@
+<div style="display: 'inline';float: 'left';width: '30%';padding-right: '10px';">
+    <br/>
+    <h2 style="text-align:'center';font-weight: 500;">Registration Form</h2>
+    <form [formGroup]="registrationForm" (ngSubmit)="addClick()" >  
+        <br/>
+        
+        <table style="padding: auto;" align="center" cellpadding="3">
+            <tr>
+            <!--
+               <td> Employee ID: </td>
+               <td><input type="number" formControlName="empId" placeholder="Employee ID"/></td>
+            -->
+            <td>
+            <mat-form-field appearance="outline">
+                <mat-label>Employee Id</mat-label>
+                <input matInput placeholder="eg.123445" [formControl]="registrationForm.controls.empId" type="number">
+            </mat-form-field>
+             </td>
+            </tr>
+            
+            <tr>
+                
+                <!--
+                <td>Name: </td>
+                <td><input type="test" formControlName="name" placeholder="Name"/></td>
+                -->
+                <td>
+                    <mat-form-field appearance="outline">
+                    <mat-label>Name</mat-label>
+                    <input matInput  placeholder="eg. Ram" [formControl]="registrationForm.controls.name">
+                    </mat-form-field>
+                </td>
+            </tr>
+            
+            <tr>
+            
+                <!--<td>Gender:</td>
+                <td>
+                    <input type="radio" formControlName="gender" value="male" />Male
+                <input type="radio" formControlName="gender" value="female" />Female
+                </td>-->
+                
+                <td>
+                    <label id="gender">Gender</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <mat-radio-group aria-labelledby="gender" [formControl]="registrationForm.controls.gender">
+                    <mat-radio-button value="male">Male</mat-radio-button>&nbsp;&nbsp;&nbsp;
+                    <mat-radio-button value="female">Female</mat-radio-button>
+                    </mat-radio-group>
+                </td>
+                
+            
+            </tr>
+            
+            <tr>
+                <!--
+                <td>Address: </td>
+                <td><input type="textarea" formControlName="address" placeholder="Address"/></td>
+                    -->
+                    <td>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Address</mat-label>
+                            <textarea matInput placeholder="eg.No 11/5,area" [formControl]="registrationForm.controls.address" ></textarea>
+                        </mat-form-field>
+                    </td>
+            </tr >
+            
+            <tr *ngIf="registrationForm.status=='INVALID'">
+                    <td>Form Status: {{registrationForm.status}}</td>
+                    
+            </tr>
+            <br/>
+            <tr>
+            <td colspan="2" align="center"><button mat-raised-button color="primary" type="submit">Submit</button></td>
+            </tr>
+            
+        </table>
+    </form>
+</div>

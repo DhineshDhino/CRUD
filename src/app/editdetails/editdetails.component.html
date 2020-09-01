@@ -1,0 +1,81 @@
+<div *ngIf="show" >
+    <div >
+    <h4>Edit Form</h4>
+    <form [formGroup]="editForm" (ngSubmit)="notify.emit(editForm.value)">  
+        <table style="padding: auto;" align="center" cellpadding="3">
+            <tr>
+                
+                <!--
+                    <td>Employee ID: </td>
+                <td><input type="number" formControlName="empId" placeholder="Employee ID" readonly/></td>
+                -->
+                <td>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Employee Id</mat-label>
+                        <input matInput placeholder="eg.123445" readonly  [formControl]="editForm.controls.empId" type="number">
+                    </mat-form-field>
+                     </td>
+            </tr>
+            <tr>
+                <td>
+                    <mat-form-field appearance="outline">
+                    <mat-label>Name</mat-label>
+                    <input matInput placeholder="eg. Ram" [formControl]="editForm.controls.name">
+                    </mat-form-field>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label id="gender">Gender</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <mat-radio-group aria-labelledby="gender" [formControl]="editForm.controls.gender">
+                    <mat-radio-button value="male">Male</mat-radio-button>&nbsp;&nbsp;&nbsp;
+                    <mat-radio-button value="female">Female</mat-radio-button>
+                    </mat-radio-group>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Address</mat-label>
+                        <textarea matInput placeholder="eg.No 11/5,area" [formControl]="editForm.controls.address" ></textarea>
+                    </mat-form-field>
+                </td>
+            </tr>    
+            <tr>
+                <td colspan="2" align="center"><button mat-raised-button color="primary" type="submit">Update!</button></td>
+            </tr>
+        </table>
+        
+    </form>
+    </div>
+</div>
+<!--<div *ngIf="show">
+    <h4>Edit Form</h4>
+    <br/>
+    <label>
+        Employee ID: 
+        <input type="number" placeholder="Employee ID" disabled="true" [value]="employee.empId"/>
+    </label>
+    <br/>
+    <label>
+        Name: 
+        <input type="test" placeholder="Name" [value]="employee.name"/>
+    </label>
+    <br/>
+    <label>
+        Gender:
+        <input type="radio"  name="gender" value="male"  selected="{{employee.gender==male}}"/>Male
+        <input type="radio"  name="gender" value="female" selected="{{employee.gender==female}}"/>Female
+    </label>
+    <br/>
+    <label>
+        Address: 
+        <input type="textarea"  placeholder="Address" [value]="employee.address"/>
+    </label>
+    <br/>
+    <button (click)="onEditSubmit()">Done!</button>
+</div>-->
