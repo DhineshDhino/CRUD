@@ -18,13 +18,7 @@ export class ViewdetailsComponent implements OnInit {
   @ViewChild(MatTable) table: MatTable<Employee>;
   displayedColumns: string[]=["empId","name","gender","address","actions"];
 
-<<<<<<< HEAD
   constructor(public employeeService: EmployeeService) {
-=======
-  constructor(public employeeService: EmployeeService) { 
-    this.dsEmployees= new MatTableDataSource<Employee>(this.employeesCopy);
-
->>>>>>> 0beb1e71829f4b26c2cf39a548f40c5941021ea8
   }
 
   ngOnInit(): void {
