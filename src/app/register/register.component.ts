@@ -1,5 +1,7 @@
 import { EmployeeService } from './../employee.service';
+
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+
 import { FormBuilder, Validators } from '@angular/forms';
 import { Employee } from '../employee';
 
@@ -12,7 +14,9 @@ import { Employee } from '../employee';
 })
 export class RegisterComponent implements OnInit {
   registrationForm;
+
   @Output() addingEmp= new EventEmitter<Employee>(); 
+
 
   constructor(private fb: FormBuilder,private employeeService: EmployeeService) {
     this.registrationForm = this.fb.group({
@@ -25,6 +29,7 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
   
   addClick(){
     console.log("Add Click called");
@@ -35,5 +40,6 @@ export class RegisterComponent implements OnInit {
     }
     this.registrationForm.reset();
   }
+
 
 }

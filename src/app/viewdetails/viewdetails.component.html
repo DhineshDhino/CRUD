@@ -1,6 +1,8 @@
+
 <app-register (addingEmp)="addEmp($event)"></app-register>
 <div align="center" *ngIf="employeeService.employees.length" style="display: 'inline';float: 'right';width: '68%'; border-left: '3px solid #0080fe';padding-right: '10px';min-height: 500px">
     <!--<table cellpadding="4px" class="bordered">
+
         <tr>
             <th>EmployeeID</th>
             <th>Name</th>
@@ -19,6 +21,7 @@
             </td>
         </tr>
     </table>
+
     -->
     <table mat-table style="width: 80%;" [dataSource]="employeesCopy" class="mat-elevation-z8">
 
